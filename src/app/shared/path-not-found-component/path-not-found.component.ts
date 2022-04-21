@@ -10,6 +10,11 @@ export class PathNotFoundComponent implements OnInit {
   navItemList = [
     {title: 'login', routerLink: '/auth/login' },
     {title: 'registro', routerLink: '/auth/register' },
+    {title: 'listado', routerLink: '/heroes/listado' },
+    {title: 'agregar', routerLink: '/heroes/agregar' },
+    {title: 'editar', routerLink: '/heroes/editar' },
+    {title: 'buscar', routerLink: '/heroes/buscar' },
+    {title: 'heroe', routerLink: '/heroes/:id' },
   ]
   constructor() { }
 

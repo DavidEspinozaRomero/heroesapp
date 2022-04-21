@@ -4,12 +4,12 @@ import { RouterModule, Routes } from '@angular/router';
 import { PathNotFoundComponent } from './shared/path-not-found-component/path-not-found.component';
 
 const routes: Routes = [
-  // {
-  //   path: 'path',
-  //   loadChildren: () => import('lazy-path').then(m => m.lazy-module)
-  // },
-  // { path: '', pathMatch: 'full', redirectTo: 'path' },
-  { path: '**', component: PathNotFoundComponent },
+  {
+    path: 'auth',
+    loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule)
+  },
+  { path: '404', component: PathNotFoundComponent },
+  { path: '**', pathMatch: 'full', redirectTo: '404' },
 ];
 
 @NgModule({

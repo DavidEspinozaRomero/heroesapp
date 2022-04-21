@@ -7,6 +7,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PathNotFoundComponent implements OnInit {
 
+  navItemList = [
+    {title: 'login', routerLink: '/auth/login' },
+    {title: 'registro', routerLink: '/auth/register' },
+  ]
   constructor() { }
 
   ngOnInit(): void {

@@ -14,7 +14,6 @@ import { HomeComponent } from "./pages/heroe/home.component";
   declarations: [
     ListComponent,
     AddComponent,
-    EditComponent,
     SearchComponent,
     HeroeComponent,
     HomeComponent,

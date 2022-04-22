@@ -12,9 +12,9 @@ export class PathNotFoundComponent implements OnInit {
     {title: 'registro', routerLink: '/auth/register' },
     {title: 'listado', routerLink: '/heroes/listado' },
     {title: 'agregar', routerLink: '/heroes/agregar' },
-    {title: 'editar', routerLink: '/heroes/editar' },
+    {title: 'editar', routerLink: '/heroes/editar/1' },
     {title: 'buscar', routerLink: '/heroes/buscar' },
-    {title: 'heroe', routerLink: '/heroes/:id' },
+    {title: 'heroe', routerLink: '/heroes/12' },
   ]
   constructor() { }
 

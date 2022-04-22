@@ -8,7 +8,7 @@ import { AddComponent } from "./pages/add/add.component";
 import { EditComponent } from "./pages/edit/edit.component";
 import { SearchComponent } from "./pages/search/search.component";
 import { HeroeComponent } from "./pages/heroe/heroe.component";
-import { HomeComponent } from "./pages/heroe/home.component";
+import { HomeComponent } from "./pages/home/home.component";
 
 @NgModule({
   declarations: [

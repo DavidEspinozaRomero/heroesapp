@@ -10,14 +10,14 @@ import { HeroeComponent } from './pages/heroe/heroe.component';
 const routes: Routes = [
   { path: 'listado', component: ListComponent },
   { path: 'agregar', component: AddComponent },
-  { path: 'editar/:id', component: EditComponent },
+  { path: 'editar/:id', component: AddComponent },
   { path: 'buscar', component: SearchComponent },
   { path: ':id', component: HeroeComponent },
   { path: '**', redirectTo: 'listado'  },
 ];
 
 @NgModule({
-  imports: [RouterModule.forChild(routes)],
+  imports: [RouterModule.forChild(routes, {useHash:true})],
   exports: [RouterModule]
 })
 export class HeroesRoutingModule { }

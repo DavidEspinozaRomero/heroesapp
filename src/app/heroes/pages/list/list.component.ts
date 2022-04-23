@@ -1,4 +1,6 @@
 import { Component, OnInit } from "@angular/core";
+import { Hero } from "../../interfaces/heroes.interfaces";
+
 import { HeroesService } from "../../services/heroes.service";
 
 @Component({
@@ -7,13 +9,18 @@ import { HeroesService } from "../../services/heroes.service";
   styleUrls: ["./list.component.scss"],
 })
 export class ListComponent implements OnInit {
+  // #region variables
+  heroesList: Hero[];
+  // #endregion variables
   constructor(private _heroesService: HeroesService) {}
 
   ngOnInit(): void {}
+  //#region apis
   getHeroes() {
     this._heroesService.getHeroes().subscribe({
-      next: (res) => {
-        console.log(res);
+      next: (heroes) => {
+        console.log(heroes);
+        this.heroesList = heroes
       },
       error: (e) => {
         console.log(e);
@@ -21,4 +28,5 @@ export class ListComponent implements OnInit {
       complete: () => {},
     });
   }
+  //#endregion apis
 }

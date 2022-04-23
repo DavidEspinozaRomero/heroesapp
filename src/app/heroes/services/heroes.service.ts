@@ -3,11 +3,11 @@ import { HttpClient } from "@angular/common/http";
 import { environment } from "../../../environments/environment";
 
 @Injectable({ providedIn: "root" })
-export class ServiceNameService {
+export class HeroesService {
   constructor(private _http: HttpClient) {}
 
   getHeroes(): Observer<any> {
-		const URL:number = `${environment.urlApp}/heroes`
-		return this._http.get(URL);
-	}
+    const URL: number = `${environment.urlApp}/heroes`;
+    return this._http.get(URL);
+  }
 }

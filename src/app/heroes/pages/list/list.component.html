@@ -1,5 +1,8 @@
-<p>list works!</p>
+<h1>Listado de Heroes </h1>
+<mat-divider></mat-divider>
 
-<ul class="list-unstyled">
-    <li *ngFor="let heroe of heroesList" > {{heroe.superhero}} </li>
-</ul>
+<mat-card *ngFor="let heroe of heroesList">
+	{{heroe.superhero}}
+</mat-card>
+
+

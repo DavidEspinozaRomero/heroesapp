@@ -10,6 +10,8 @@ import { SearchComponent } from './pages/search/search.component';
 import { HeroeComponent } from './pages/heroe/heroe.component';
 import { HomeComponent } from './pages/home/home.component';
 import { MaterialModule } from '../material/material.module';
+import { HeroeCardComponent } from "./components/heroe-card.component";
+
 
 @NgModule({
   declarations: [
@@ -18,6 +20,7 @@ import { MaterialModule } from '../material/material.module';
     SearchComponent,
     HeroeComponent,
     HomeComponent,
+    HeroeCardComponent,
   ],
   imports: [CommonModule, FlexLayoutModule, HeroesRoutingModule, MaterialModule],
 })

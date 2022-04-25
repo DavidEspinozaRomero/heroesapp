@@ -1,1 +1,36 @@
-<p>heroe works!</p>
+<mat-grid-list cols="1" *ngIf="!hero; else divHero">
+  <mat-grid-tile>
+    <mat-progress-spinner color="primary" mode="indeterminate"
+      >></mat-progress-spinner
+    >
+  </mat-grid-tile>
+</mat-grid-list>
+
+<ng-template #divHero>
+  <pre> {{ hero | json }} </pre>
+  <div fxLayout="row" fxLayout.xs="column">
+    <div fxFlex="50">
+      <h1>
+        {{ hero.superhero }} <small>-{{ hero.alter_ego }} </small>
+      </h1>
+      <mat-divider></mat-divider>
+      <br />
+      <img [src]="hero | image" [alt]="hero.id" />
+    </div>
+    <div fxFlex="50">
+      <h1>{{ hero.publisher }}</h1>
+      <mat-divider></mat-divider>
+      <br />
+      <mat-list>
+        <mat-list-item>{{ hero.first_appearance }} </mat-list-item>
+        <mat-list-item>{{ hero.characters }} </mat-list-item>
+        <mat-list-item>{{ hero.publisher }} </mat-list-item>
+        <mat-list-item>{{ hero.alter_ego }} </mat-list-item>
+      </mat-list>
+      <br>
+      <button mat-button color="warn" routerLink="/heroes/">
+        Regresar
+      </button>
+    </div>
+  </div>
+</ng-template>

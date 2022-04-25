@@ -10,11 +10,13 @@ import { HeroesService } from "../../services/heroes.service";
 })
 export class ListComponent implements OnInit {
   // #region variables
-  heroesList: Hero[];
+  heroesList: Hero[] = [];
   // #endregion variables
   constructor(private _heroesService: HeroesService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.getHeroes()
+  }
   //#region apis
   getHeroes() {
     this._heroesService.getHeroes().subscribe({

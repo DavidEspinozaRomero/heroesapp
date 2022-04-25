@@ -9,8 +9,21 @@ import { Hero } from "../interfaces/heroes.interfaces";
 export class HeroesService {
   constructor(private _http: HttpClient) {}
 
+/**
+ * The function returns Heroes
+ * @returns Observable<Hero[]>
+ */
   getHeroes(): Observable<Hero[]> {
-    const URL: number = `${environment.urlApp}/heroes`;
-    return this._http.get<Hero[]>(URL);
+    const URL: string = `${environment.urlApp}/heroes`;
+    return this._http.get<Hero[]>(`${environment.urlApp}/heroes`);
+  }
+/**
+ * It returns a Hero.
+ * @param {string} id - The id of the hero to retrieve.
+ * @returns Observable  Hero;
+ */
+  getHeroeById(id:string): Observable<Hero> {
+    const URL: string = `${environment.urlApp}/heroes/${id}`;
+    return this._http.get<Hero>(URL);
   }
 }

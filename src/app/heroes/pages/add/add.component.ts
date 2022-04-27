@@ -18,6 +18,7 @@ export class AddComponent implements OnInit {
     { id: "DC Comics", desc: "DC - Comics" },
     { id: "Marvel Comics", desc: "Marvel - Comics" },
   ];
+  // todo: add formbuilder
   hero: Hero = {
     superhero = string,
     publisher = Publisher,

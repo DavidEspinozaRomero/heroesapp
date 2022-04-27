@@ -1,11 +1,11 @@
-import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Injectable } from "@angular/core";
+import { HttpClient } from "@angular/common/http";
+import { Observable } from "rxjs";
 
-import { environment } from '../../../environments/environment';
-import { Hero } from '../interfaces/heroes.interfaces';
+import { environment } from "../../../environments/environment";
+import { Hero } from "../interfaces/heroes.interfaces";
 
-@Injectable({ providedIn: 'root' })
+@Injectable({ providedIn: "root" })
 export class HeroesService {
   constructor(private _http: HttpClient) {}
 
@@ -27,9 +27,11 @@ export class HeroesService {
     return this._http.get<Hero>(URL);
   }
   getSugestionHeroes(termino: string): Observable<Hero[]> {
+    const URL: string = `${environment.urlApp}/heroes?q=${termino}&_limit=6`;
+    return this._http.get<Hero[]>(URL);
+  }
+  addHero(hero: Hero):Observable<Hero> {
     const URL: string = `${environment.urlApp}/heroes`;
-    return this._http.get<Hero[]>(
-      `${environment.urlApp}/heroes?q=${termino}&_limit=6`
-    );
+    return this._http.post<Hero>(`${environment.urlApp}/heroes`, hero);
   }
 }

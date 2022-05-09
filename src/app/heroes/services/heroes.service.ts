@@ -41,4 +41,8 @@ export class HeroesService {
       hero
     );
   }
+  deleteHero(id: string): Observable<any> {
+    const URL: string = `${environment.urlApp}/heroes`;
+    return this._http.delete<any>(`${environment.urlApp}/heroes/${id}`);
+  }
 }

@@ -34,12 +34,22 @@
       <input matInput type="url" required />
     </mat-form-field>
     <br />
-    <button mat-raised-button color="warn" (click)="save()">
-      <mat-icon>edit</mat-icon>
-      Guardar
-    </button>
+    <div fxLayout>
+      <button mat-raised-button color="primary" (click)="save()">
+        <mat-icon>edit</mat-icon>
+        Guardar
+      </button>
+      <span class="spacer"></span>
+      <button *ngIf="hero.id"
+      mat-button color="warn" (click)="deleteHero()">
+        <mat-icon>remove</mat-icon>
+        Borrar
+      </button>
+    </div>
   </div>
   <div fxFlex="50">
     <img [src]="hero | image" [alt]="hero.id" />
   </div>
 </div>
+
+<div (click)="showSnackBar('snack bar')">snackbar</div>

@@ -1,30 +1,33 @@
-import { Component, OnInit } from "@angular/core";
-import { Hero } from "../interfaces/heroes.interfaces";
-import { HeroesService } from "../../services/heroes.service";
+import { Component, OnInit } from '@angular/core';
+import { Hero, Publisher } from '../../interfaces/heroes.interfaces';
+import { HeroesService } from '../../services/heroes.service';
 
-interface Publisher {
+//#region interfaces
+interface Publishers {
   id: string;
   desc: string;
 }
+//#endregion interfaces
 
 @Component({
-  selector: "app-add",
-  templateUrl: "./add.component.html",
-  styleUrls: ["./add.component.scss"],
+  selector: 'app-add',
+  templateUrl: './add.component.html',
+  styleUrls: ['./add.component.scss'],
 })
 export class AddComponent implements OnInit {
   //#region variables
-  publishers: Publisher[] = [
-    { id: "DC Comics", desc: "DC - Comics" },
-    { id: "Marvel Comics", desc: "Marvel - Comics" },
+  publishers: Publishers[] = [
+    { id: 'DC Comics', desc: 'DC - Comics' },
+    { id: 'Marvel Comics', desc: 'Marvel - Comics' },
   ];
   // todo: add formbuilder
   hero: Hero = {
-    superhero = string,
-    publisher = Publisher,
-    alter_ego = string,
-    first_appearance = string,
-    characters = string,
+    superhero: '',
+    alter_ego: '',
+    characters: '',
+    first_appearance: '',
+    publisher: Publisher.DCComics,
+    alt_img: '',
   };
   //#endregion variables
   constructor(private _heroesService: HeroesService) {}

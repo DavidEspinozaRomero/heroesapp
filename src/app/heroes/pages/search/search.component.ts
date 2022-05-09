@@ -31,14 +31,15 @@ export class SearchComponent implements OnInit {
 
   optionSelected(event: MatAutocompleteSelectedEvent) {
     if (!event.option.value) {
-      return (this.heroSelected = undefined);
+      this.heroSelected = undefined;
+      return;
     }
     const hero: Hero = event.option.value;
     this.searchForm.controls.inputHero.reset(hero.superhero);
 
     this._heroesService.getHeroeById(hero.id!).subscribe({
-      next: (hero) => {
-        this.heroSelected = hero;
+      next: (heroe) => {
+        this.heroSelected = heroe;
       },
       error: console.log,
       complete: console.log,

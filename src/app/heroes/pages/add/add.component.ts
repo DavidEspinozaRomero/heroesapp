@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Router } from '@angular/router';
+import { switchMap } from 'rxjs/operators';
+
 import { Hero, Publisher } from '../../interfaces/heroes.interfaces';
 import { HeroesService } from '../../services/heroes.service';
 
@@ -30,17 +34,40 @@ export class AddComponent implements OnInit {
     alt_img: '',
   };
   //#endregion variables
-  constructor(private _heroesService: HeroesService) {}
+  constructor(
+    private _heroesService: HeroesService,
+    private _activatedRoute: ActivatedRoute,
+    private _router: Router
+  ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this._activatedRoute.params
+      .pipe(switchMap(({ id }) => this._heroesService.getHeroeById(id)))
+      .subscribe((hero) => (this.hero = hero));
+  }
 
   //#region apis
   save() {
-    this._heroesService.addHero(this.hero).subscribe({
-      next: console.log,
-      error: console.log,
-      complete: console.log,
-    });
+    if (this.hero.superhero.trim().length === 0) {
+      return;
+    }
+    if (this.hero.id) {
+      this._heroesService.updateHero(this.hero).subscribe({
+        next: console.log,
+        error: console.log,
+        complete: console.log,
+      });
+    } else {
+      this._heroesService.addHero(this.hero).subscribe({
+        next: (hero) => {
+          console.log(hero);
+
+          this._router.navigate(['heroes/editar', hero.id]);
+        },
+        error: console.log,
+        complete: console.log,
+      });
+    }
   }
   //#endregion apis
 }

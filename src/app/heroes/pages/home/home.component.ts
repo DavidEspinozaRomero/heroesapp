@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { router } from "@angular/router";
 import { MatSidenav } from '@angular/material/sidenav';
 
 @Component({
@@ -20,7 +21,8 @@ export class HomeComponent implements OnInit {
     {icon: 'label', title: 'heroe', routerLink: './12' },
   ]
   //#endregion variables de sidenav
-  constructor() { }
+
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
   }

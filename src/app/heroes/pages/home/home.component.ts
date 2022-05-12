@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { router } from "@angular/router";
+import { Router } from "@angular/router";
 import { MatSidenav } from '@angular/material/sidenav';
 
 @Component({

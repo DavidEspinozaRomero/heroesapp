@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { router } from "@angular/router";
+import { Router } from "@angular/router";
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -7,7 +7,6 @@ import { router } from "@angular/router";
 })
 export class LoginComponent {
 
-  constructor(private router: Router) { }
 
   login() {
     //bakend 

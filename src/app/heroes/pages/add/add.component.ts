@@ -81,17 +81,17 @@ export class AddComponent implements OnInit {
   deleteHero() {
     const dialogRef = this.dialog.open(ConfirmComponent, {
       width: "250px",
-      // data: { name: this.name, animal: this.animal },
+      data: { ...this.hero },
     });
 
-    // dialogRef.afterClosed().subscribe((result) => {
-    //   console.log("The dialog was closed");
-    //   this.animal = result;
-    // });
-
-    // this._heroesService.deleteHero(this.hero.id!).subscribe(() => {
-    //   this._router.navigate(['/heroes']);
-    // });
+    dialogRef.afterClosed().subscribe((result) => {
+      console.log("The dialog was closed", result);
+      if (result) {
+        this._heroesService.deleteHero(this.hero.id!).subscribe(() => {
+          this._router.navigate(["/heroes"]);
+        });
+      }
+    });
   }
 
   //#endregion apis

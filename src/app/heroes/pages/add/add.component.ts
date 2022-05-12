@@ -1,13 +1,13 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { Router } from '@angular/router';
-import { switchMap } from 'rxjs/operators';
+import { Component, OnInit } from "@angular/core";
+import { ActivatedRoute } from "@angular/router";
+import { Router } from "@angular/router";
+import { switchMap } from "rxjs/operators";
 
-import { Hero, Publisher } from '../../interfaces/heroes.interfaces';
-import { HeroesService } from '../../services/heroes.service';
-import { MatSnackBar } from '@angular/material/snack-bar';
-import { MatDialog } from '@angular/material/dialog';
-import { ConfirmComponent } from '../../components/confirm/confirm.component';
+import { Hero, Publisher } from "../../interfaces/heroes.interfaces";
+import { HeroesService } from "../../services/heroes.service";
+import { MatSnackBar } from "@angular/material/snack-bar";
+import { MatDialog } from "@angular/material/dialog";
+import { ConfirmComponent } from "../../components/confirm/confirm.component";
 
 //#region interfaces
 interface Publishers {
@@ -17,27 +17,27 @@ interface Publishers {
 //#endregion interfaces
 
 @Component({
-  selector: 'app-add',
-  templateUrl: './add.component.html',
-  styleUrls: ['./add.component.scss'],
+  selector: "app-add",
+  templateUrl: "./add.component.html",
+  styleUrls: ["./add.component.scss"],
 })
 export class AddComponent implements OnInit {
   //#region variables
   publishers: Publishers[] = [
-    { id: 'DC Comics', desc: 'DC - Comics' },
-    { id: 'Marvel Comics', desc: 'Marvel - Comics' },
+    { id: "DC Comics", desc: "DC - Comics" },
+    { id: "Marvel Comics", desc: "Marvel - Comics" },
   ];
-  animal: string = '';
-  name: string = '';
+  animal: string = "";
+  name: string = "";
 
   // todo: add formbuilder
   hero: Hero = {
-    superhero: '',
-    alter_ego: '',
-    characters: '',
-    first_appearance: '',
+    superhero: "",
+    alter_ego: "",
+    characters: "",
+    first_appearance: "",
     publisher: Publisher.DCComics,
-    alt_img: '',
+    alt_img: "",
   };
   //#endregion variables
   constructor(
@@ -45,11 +45,11 @@ export class AddComponent implements OnInit {
     private _heroesService: HeroesService,
     private _activatedRoute: ActivatedRoute,
     private _router: Router,
-    private _snackBar: MatSnackBar,
+    private _snackBar: MatSnackBar
   ) {}
 
   ngOnInit(): void {
-    if (!this._router.url.includes('editar')) {
+    if (!this._router.url.includes("editar")) {
       return;
     }
     this._activatedRoute.params
@@ -63,16 +63,14 @@ export class AddComponent implements OnInit {
       return;
     }
     if (this.hero.id) {
-      this._heroesService.updateHero(this.hero).subscribe({
-        next: () => this.showSnackBar('Registro Actualizado'),
-        error: console.log,
-        complete: console.log,
-      });
+      this._heroesService
+        .updateHero(this.hero)
+        .subscribe((hero) => this.showSnackBar("Registro Actualizado"));
     } else {
       this._heroesService.addHero(this.hero).subscribe({
         next: (hero) => {
-          this.showSnackBar('Registro Creado');
-          this._router.navigate(['heroes/editar', hero.id]);
+          this.showSnackBar("Registro Creado");
+          this._router.navigate(["heroes/editar", hero.id]);
         },
         error: console.log,
         complete: console.log,
@@ -80,15 +78,14 @@ export class AddComponent implements OnInit {
     }
   }
 
-  
   deleteHero() {
-    const dialogRef = this.dialog.open( ConfirmComponent, {
-      width: '250px',
-      data: {name: this.name, animal: this.animal},
+    const dialogRef = this.dialog.open(ConfirmComponent, {
+      width: "250px",
+      data: { name: this.name, animal: this.animal },
     });
 
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
+    dialogRef.afterClosed().subscribe((result) => {
+      console.log("The dialog was closed");
       this.animal = result;
     });
 
@@ -107,7 +104,7 @@ export class AddComponent implements OnInit {
    * @author David E.
    */
   showSnackBar(message: string) {
-    this._snackBar.open(message, 'ok!', {
+    this._snackBar.open(message, "ok!", {
       duration: 1 * 1000,
     });
   }

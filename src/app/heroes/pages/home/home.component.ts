@@ -29,7 +29,7 @@ export class HomeComponent implements OnInit {
   }
   //#endregion variables de sidenav
 
-  constructor(private router: Router, private auth: AuthService) {}
+  constructor(private router: Router, private authService: AuthService) {}
 
   ngOnInit(): void {}
 

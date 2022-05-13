@@ -25,7 +25,7 @@ export class HomeComponent implements OnInit {
   ];
   
   get auth(): Auth {
-    return this.auth.auth
+    return this.authService.auth
   }
   //#endregion variables de sidenav
 

@@ -6,7 +6,7 @@ import { Auth } from "../interfaces/auth.interface";
 import { tap } from "rxjs/operators";
 
 @Injectable({ providedIn: "root" })
-export class ServiceNameService {
+export class AuthService {
   //#region variables
   private _auth: Auth | undefined;
 

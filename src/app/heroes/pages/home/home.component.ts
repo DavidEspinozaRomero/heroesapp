@@ -21,7 +21,8 @@ export class HomeComponent implements OnInit {
   ];
   //#endregion variables de sidenav
 
-  constructor(private router: Router) {}
+  constructor(private router: Router,
+    private auth: AuthService) {}
 
   ngOnInit(): void {}
 

@@ -8,12 +8,11 @@ import { Auth } from "../interfaces/auth.interface";
 @Injectable({ providedIn: "root" })
 export class AuthService {
   //#region variables
-  _auth: Auth | undefined;
-  // private _auth: Auth | undefined;
+  private _auth: Auth | undefined;
 
-  // get auth(): Auth {
-  //   return { ...this._auth };
-  // }
+  get auth(): Auth {
+    return { ...this._auth! };
+  }
 
   //#endregion variables
   constructor(private http: HttpClient) {}

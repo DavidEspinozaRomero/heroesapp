@@ -1,7 +1,10 @@
 import { Component, OnInit, ViewChild } from "@angular/core";
 import { Router } from "@angular/router";
 import { MatSidenav } from "@angular/material/sidenav";
+
 import { AuthService } from "../../../auth/services/auth.service";
+import { Auth } from "../interfaces/auth.interface";
+
 
 @Component({
   selector: "app-home",
@@ -20,10 +23,13 @@ export class HomeComponent implements OnInit {
     { icon: "label", title: "editar", routerLink: "./editar/1" },
     { icon: "label", title: "heroe", routerLink: "./12" },
   ];
+  
+  get auth() {
+    return this.auth._auth
+  }
   //#endregion variables de sidenav
 
-  constructor(private router: Router,
-    private auth: AuthService) {}
+  constructor(private router: Router, private auth: AuthService) {}
 
   ngOnInit(): void {}
 

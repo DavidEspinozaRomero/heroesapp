@@ -10,7 +10,7 @@ export class AuthService {
   //#region variables
   private _auth: Auth | undefined;
 
-  public get auth(): string {
+  public get auth(): Auth {
     return { ...this._auth };
   }
 

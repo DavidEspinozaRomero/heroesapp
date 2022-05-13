@@ -24,8 +24,8 @@ export class HomeComponent implements OnInit {
     { icon: "label", title: "heroe", routerLink: "./12" },
   ];
   
-  get auth() {
-    return this.auth._auth
+  get auth(): Auth {
+    return this.auth.auth
   }
   //#endregion variables de sidenav
 

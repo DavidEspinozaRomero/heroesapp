@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from "@angular/core";
 import { Router } from "@angular/router";
 import { MatSidenav } from "@angular/material/sidenav";
+import { AuthService } from "../../../auth/services/auth.service";
 
 @Component({
   selector: "app-home",

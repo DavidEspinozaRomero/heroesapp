@@ -19,7 +19,7 @@ export class AuthService {
 
   login() {
     const url = this.environment.urlApp;
-    this.http
+    return this.http
       .get<Auth>(`${url}/usuarios/1`)
       .pipe(tap((auth) => (this._auth = auth)));
   }

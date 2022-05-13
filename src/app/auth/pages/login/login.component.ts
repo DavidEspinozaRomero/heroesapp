@@ -14,7 +14,7 @@ export class LoginComponent {
     // ir bakend
     // un usuario
     this.auth.login().subscribe({
-      next: (res) => {
+      next: (res:any) => {
         if (res.id) {
           this.router.navigate(["./heroes"]);
         }

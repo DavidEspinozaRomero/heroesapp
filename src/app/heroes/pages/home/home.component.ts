@@ -3,7 +3,7 @@ import { Router } from "@angular/router";
 import { MatSidenav } from "@angular/material/sidenav";
 
 import { AuthService } from "../../../auth/services/auth.service";
-import { Auth } from "../interfaces/auth.interface";
+import { Auth } from "../../auth/interfaces/auth.interface";
 
 
 @Component({

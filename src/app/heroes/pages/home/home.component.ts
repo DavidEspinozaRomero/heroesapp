@@ -1,34 +1,31 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild } from "@angular/core";
 import { Router } from "@angular/router";
-import { MatSidenav } from '@angular/material/sidenav';
+import { MatSidenav } from "@angular/material/sidenav";
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  selector: "app-home",
+  templateUrl: "./home.component.html",
+  styleUrls: ["./home.component.scss"],
 })
 export class HomeComponent implements OnInit {
-
   //#region variables de sidenav
   // @ViewChild('sidenav') sidenav: MatSidenav;
   navItemList = [
     // {title: 'login', routerLink: '/auth/login' },
     // {title: 'registro', routerLink: '/auth/register' },
-    {icon: 'label', title: 'listado de Heroes', routerLink: './listado' },
-    {icon: 'add', title: 'agregar Heroe', routerLink: './agregar' },
-    {icon: 'search', title: 'buscar Heroe', routerLink: './buscar' },
-    {icon: 'label', title: 'editar', routerLink: './editar/1' },
-    {icon: 'label', title: 'heroe', routerLink: './12' },
-  ]
+    { icon: "label", title: "listado de Heroes", routerLink: "./listado" },
+    { icon: "add", title: "agregar Heroe", routerLink: "./agregar" },
+    { icon: "search", title: "buscar Heroe", routerLink: "./buscar" },
+    { icon: "label", title: "editar", routerLink: "./editar/1" },
+    { icon: "label", title: "heroe", routerLink: "./12" },
+  ];
   //#endregion variables de sidenav
 
-  constructor(private router: Router) { }
+  constructor(private router: Router) {}
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   logout() {
-    this.router.navigate(['./auth'])
+    this.router.navigate(["./auth"]);
   }
-
 }

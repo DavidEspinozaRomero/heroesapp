@@ -10,18 +10,35 @@ import {
 import { Observable } from "rxjs";
 
 @Injectable({ providedIn: "root" })
-export class AuthGuard implements CanLoad {
-  constructor() {}
+export class AuthGuard implements CanLoad, CanActivate {
+  constructor() {} // private localStorage
 
-  // canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
-  //   return true;
-  // }
+  canActivate(
+    route: ActivatedRouteSnapshot,
+    state: RouterStateSnapshot
+  ): Observable<boolean> | Promise<boolean> | boolean {
+    console.log("canActivate", true);
+    console.log(route);
+    console.log(segments);
+    // local storage user
+    // if (!user.id) {
+    //   return false
+    // }
+
+    return true;
+  }
 
   canLoad(
     route: Route,
     segments: UrlSegment[]
   ): Observable<boolean> | Promise<boolean> | boolean {
-    console.log(route, segments);
+    console.log("canload", true);
+    console.log(route);
+    console.log(segments);
+    // local storage user
+    // if (!user.id) {
+    //   return false
+    // }
 
     return true;
   }

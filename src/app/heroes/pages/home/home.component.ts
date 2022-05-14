@@ -4,6 +4,7 @@ import { MatSidenav } from "@angular/material/sidenav";
 
 import { AuthService } from "../../../auth/services/auth.service";
 import { Auth } from "../../../auth/interfaces/auth.interface";
+// import { localStorageService } from "../../../service/localStorage.service";
 
 
 @Component({
@@ -34,6 +35,7 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {}
 
   logout() {
+    // localStorageService
     this.router.navigate(["./auth"]);
   }
 }

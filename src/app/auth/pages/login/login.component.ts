@@ -13,7 +13,7 @@ export class LoginComponent {
   login() {
     // ir bakend
     // un usuario
-    this.router.navigate(["./heroes"]);
+    this.router.navigate(["./heroes"]); // eliminar
     this.auth.login().subscribe({
       next: (res:any) => {
         if (res.id) {

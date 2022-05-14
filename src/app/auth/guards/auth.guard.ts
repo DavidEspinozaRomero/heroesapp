@@ -5,6 +5,7 @@ import {
   CanLoad,
   RouterStateSnapshot,
   UrlSegment,
+  Router,
 } from "@angular/router";
 import { Observable } from "rxjs";
 
@@ -21,7 +22,7 @@ export class AuthGuard implements CanLoad {
     segments: UrlSegment[]
   ): Observable<boolean> | Promise<boolean> | boolean {
     console.log(route, segments);
-    
+
     return true;
   }
 }

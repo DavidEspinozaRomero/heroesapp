@@ -33,6 +33,6 @@ export class AuthGuard implements CanLoad, CanActivate {
     console.log(route);
     console.log(segments);
 
-    return true;
+    return this._authService.verifyAuthentication();
   }
 }

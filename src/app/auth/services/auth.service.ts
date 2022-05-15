@@ -26,7 +26,8 @@ export class AuthService {
   verifyAuthentication(): Observable<boolean> {
     if (!this._localStorage.getStorage("token")) {
       return of(false);
-    }
+    } 
+    return of(true); // TODO: borrar
     return this.http.get<Auth>(`${environment.urlApp}/usuarios/1`).pipe(
       map((auth) => {
         console.log(auth);

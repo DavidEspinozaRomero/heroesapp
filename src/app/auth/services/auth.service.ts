@@ -16,21 +16,23 @@ export class AuthService {
   get auth(): Auth {
     return { ...this._auth! };
   }
-  
 
   //#endregion variables
-  constructor(private http: HttpClient, private _localStorage:LocalStorageService) {}
+  constructor(
+    private http: HttpClient,
+    private _localStorage: LocalStorageService
+  ) {}
 
   verifyAuthentication(): Observable<boolean> {
-    if (!this._localStorage.getStorage('token')) {
-      return of(false)
+    if (!this._localStorage.getStorage("token")) {
+      return of(false);
     }
     return this.http.get<Auth>(`${environment.urlApp}/usuarios/1`).pipe(
-      map(auth => {
+      map((auth) => {
         console.log(auth);
-        return true
+        return true;
       })
-    )
+    );
 
     // return of(true)
   }
@@ -43,6 +45,6 @@ export class AuthService {
   }
 
   logout() {
-    this._localStorage.setStorage("token", auth.id)
+    localStorage.removeItem('token')
   }
 }

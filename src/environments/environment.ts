@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   // urlApp: 'http://localhost:3000'
-  urlApp: '../db.json' //test
+  urlApp: '../../db.json' //test
 };
 
 /*

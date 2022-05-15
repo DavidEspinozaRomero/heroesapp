@@ -18,10 +18,9 @@ export class AuthGuard implements CanLoad, CanActivate {
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
   ): Observable<boolean> | Promise<boolean> | boolean {
-    console.log("canActivate", true);
-    console.log(route);
-    console.log(state);
-
+    console.log("canActivate");
+    // console.log(route);
+    // console.log(state);
     return this._authService.verifyAuthentication();
   }
 
@@ -29,10 +28,9 @@ export class AuthGuard implements CanLoad, CanActivate {
     route: Route,
     segments: UrlSegment[]
   ): Observable<boolean> | Promise<boolean> | boolean {
-    console.log("canload", true);
-    console.log(route);
-    console.log(segments);
-
+    console.log("canload");
+    // console.log(route);
+    // console.log(segments);
     return this._authService.verifyAuthentication();
   }
 }

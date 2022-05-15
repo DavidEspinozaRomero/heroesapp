@@ -5,11 +5,11 @@ import { AuthService } from "../auth/services/auth.service";
 export class LocalStorageService {
   constructor(private authService: AuthService) {}
 
-  setStorage(key:string, data:any) {
+  setStorage(key: string, data: any) {
     localStorage.setItem(key, JSON.stringify(data));
   }
 
-  getStorage(key:string) {
+  getStorage(key: string) {
     const local = localStorage.getItem(key);
     return JSON.parse(local!);
   }

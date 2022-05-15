@@ -37,12 +37,12 @@ export class AuthService {
 
   login() {
     return this.http.get<Auth>(`${environment.urlApp}/usuarios/1`).pipe(
-      tap((auth) => (this._auth = auth)),
-      tap((auth) => this._localStorage.setStorage("user", auth))
+      tap((auth) => (this._auth = auth.id)),
+      tap((auth) => this._localStorage.setStorage("token", auth.id))
     );
   }
 
   logout() {
-    this._auth = undefined;
+    this._localStorage.setStorage("token", auth.id)
   }
 }

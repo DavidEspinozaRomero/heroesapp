@@ -19,7 +19,7 @@ export class AuthGuard implements CanLoad, CanActivate {
   ): Observable<boolean> | Promise<boolean> | boolean {
     console.log("canActivate", true);
     console.log(route);
-    console.log(segments);
+    console.log(state);
     // local storage user
     // if (!user.id) {
     //   return false

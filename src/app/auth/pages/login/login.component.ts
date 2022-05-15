@@ -1,7 +1,7 @@
 import { Component } from "@angular/core";
 import { Router } from "@angular/router";
 import { AuthService } from "../../services/auth.service";
-// import { localStorageService } from "../../../service/localStorage.service";
+import { LocalStorageService } from "../../../service/localStorage.service";
 
 @Component({
   selector: "app-login",
@@ -9,7 +9,8 @@ import { AuthService } from "../../services/auth.service";
   styleUrls: ["./login.component.scss"],
 })
 export class LoginComponent {
-  constructor(private router: Router, private auth: AuthService) {}
+  constructor(private router: Router, private auth: AuthService,
+    private _localStorage: LocalStorageService) {}
 
   login() {
     // ir bakend
@@ -17,7 +18,7 @@ export class LoginComponent {
     this.router.navigate(["./heroes"]); // eliminar
     this.auth.login().subscribe({
       next: (res:any) => {
-        // localStorageService
+        
         if (res.id) {
           this.router.navigate(["./heroes"]);
         }

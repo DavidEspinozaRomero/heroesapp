@@ -4,7 +4,7 @@ import { MatSidenav } from "@angular/material/sidenav";
 
 import { AuthService } from "../../../auth/services/auth.service";
 import { Auth } from "../../../auth/interfaces/auth.interface";
-// import { localStorageService } from "../../../service/localStorage.service";
+// import { LocalStorageService } from "../../../service/localStorage.service";
 
 
 @Component({

@@ -22,7 +22,7 @@ export class AuthService {
   constructor(private http: HttpClient, private _localStorage:LocalStorageService) {}
 
   verifyAuthentication(): Observable<boolean> {
-    if (!this._localStorage.getStorage('user')) {
+    if (!this._localStorage.getStorage('token')) {
       return of(false)
     }
     return this.http.get<Auth>(`${environment.urlApp}/usuarios/1`).pipe(
@@ -37,7 +37,7 @@ export class AuthService {
 
   login() {
     return this.http.get<Auth>(`${environment.urlApp}/usuarios/1`).pipe(
-      tap((auth) => (this._auth = auth.id)),
+      tap((auth) => (this._auth = auth)),
       tap((auth) => this._localStorage.setStorage("token", auth.id))
     );
   }

@@ -8,10 +8,11 @@ import {
   Route,
 } from "@angular/router";
 import { Observable } from "rxjs";
+import { AuthService } from "../services/auth.service";
 
 @Injectable({ providedIn: "root" })
 export class AuthGuard implements CanLoad, CanActivate {
-  constructor() {} // private localStorage
+  constructor(private _authService: AuthService) {} // private localStorage
 
   canActivate(
     route: ActivatedRouteSnapshot,
@@ -20,12 +21,8 @@ export class AuthGuard implements CanLoad, CanActivate {
     console.log("canActivate", true);
     console.log(route);
     console.log(state);
-    // local storage user
-    // if (!user.id) {
-    //   return false
-    // }
 
-    return true;
+    return this._authService.verifyAuthentication();
   }
 
   canLoad(
@@ -35,10 +32,6 @@ export class AuthGuard implements CanLoad, CanActivate {
     console.log("canload", true);
     console.log(route);
     console.log(segments);
-    // local storage user
-    // if (!user.id) {
-    //   return false
-    // }
 
     return true;
   }

@@ -26,11 +26,11 @@ export class AuthService {
   verifyAuthentication(): Observable<boolean> {
     if (!this._localStorage.getStorage("token")) {
       return of(false);
-    } 
+    }
     return of(true); // TODO: borrar
     return this.http.get<Auth>(`${environment.urlApp}/usuarios/1`).pipe(
       map((auth) => {
-        console.log(auth);
+        this._auth = auth;
         return true;
       })
     );
@@ -46,6 +46,6 @@ export class AuthService {
   }
 
   logout() {
-    localStorage.removeItem('token')
+    localStorage.removeItem("token");
   }
 }

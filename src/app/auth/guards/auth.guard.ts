@@ -9,10 +9,11 @@ import {
 } from "@angular/router";
 import { Observable } from "rxjs";
 import { AuthService } from "../services/auth.service";
+import { Router } from "@angular/router";
 
 @Injectable({ providedIn: "root" })
 export class AuthGuard implements CanLoad, CanActivate {
-  constructor(private _authService: AuthService) {} // private localStorage
+  constructor(private _authService: AuthService, private router: Router) {} // private localStorage
 
   canActivate(
     route: ActivatedRouteSnapshot,
@@ -21,7 +22,13 @@ export class AuthGuard implements CanLoad, CanActivate {
     console.log("canActivate");
     // console.log(route);
     // console.log(state);
-    return this._authService.verifyAuthentication();
+    return this._authService.verifyAuthentication().pipe(
+      tap((isAuthenticated) => {
+        if (!isAuthenticated) {
+          this.router.natigate(["./auth/login"]);
+        }
+      })
+    );
   }
 
   canLoad(
